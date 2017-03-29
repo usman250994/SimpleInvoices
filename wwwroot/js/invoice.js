@@ -208,6 +208,8 @@ $scope.message =  $http.post('http://localhost:5000/api/invoice/getinvoice',x).
          then(function (response){        
 
            $scope.customers = response.data[0];   
+           $scope.customers.date=$scope.customers.date.substring(0,10);
+           $scope.customers.delivery=$scope.customers.delivery.substring(0,10);
                console.log(response.data[0]);  
                  $rootScope.invoiceId=0;
        
@@ -306,10 +308,43 @@ for(var i=0;i<$scope.products.length;i++)
 }
 //blur function editProd
 
-$scope.editProd = function(index,name)
+$scope.editProd = function(index,name,val)
 {
-//update quantity price and tax
+if(name=="quantity")
+{
+    // now that quantity hass changed so we need to change price accordingly
+    var prod = $scope.customers.products[index]; 
+    prod.price=prod.quantity*prod.price*prod.taxPercent*0.001;
+$scope.customers.products[index]=prod;
 }
+
+if(name=="tax")
+{
+    // now that tax hass changed so we need to change price accordingly
+var prod = $scope.customers.products[index]; 
+var taxPercentage;
+for(var i=0;i<$scope.taxes.length;i++)
+{
+if($scope.taxes[i].id==val)
+{
+taxPercentage= $scope.taxes[i].percent;
+prod.taxId=$scope.taxes[i].id;
+return;
+}
+    }
+prod.price=prod.quantity*prod.price*taxPercentage*0.001;
+$scope.customers.products[index]=prod;
+}
+
+if(name=="price")
+{
+    // now that price hass changed so we need to change price accordingly
+    var prod = $scope.customers.products[index]; 
+    prod.price=prod.quantity*prod.price*prod.taxPercent*0.001;
+$scope.customers.products[index]=prod;
+}
+
+    }
 
 
 

@@ -1,48 +1,22 @@
-<!DOCTYPE html>
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-app="loginModule"  >
+	<div class="" ng-controller="loginController">
+		<form ng-submit="validate()">
+			<fieldset class="form-group">
+				<legend>Sign In</legend>
+				<label for="description">Email</label>
+				<input type="text" class="form-control" ng-model="login.email" id="name" placeholder="email">
+				<label for="unitPrice">Password</label>
+				<input type="password" class="form-control" ng-model="login.password" id="percentage" placeholder="Password">
 
-<html lang="en">
+				<button type="submit" class="btn btn-success" ><i class="fa fa-plus " ></i>Login</button>
+				
+			</fieldset>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		</form>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Login</title>
+	</div>
+    
+</div>
+<img src="../images/logo.png"/>
 
-    <!-- Bootstrap Core CSS -->
-
-
-    <!-- Custom CSS -->
-
-
-</head>
-
-<body>
-    <!-- Navigation -->
-    <div class="container">
-        <div class="row" ng-app="loginModule">
-            <div class="col-md-4">
-            </div>
-            <div class="col-sm-6 col-md-4 col-md-offset-4" ng-controller="loginController">
-                <h1 class="text-center login-title">Log In</h1>
-                <div class="account-wall">
-                    <form ng-submit="validate()">
-                        <img class="profile-img" src="http://manavsthalischool.com/wp-content/uploads/2013/05/login.jpg" alt="">
-
-                        <input type="text" class="form-control" placeholder="email" ng-model="login.email" required autofocus>
-                        <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in
-                        </button>
-
-                    </form>
-                </div>
-                <a href="#" class="text-center new-account">Create an account </a>
-            </div>
-        </div>
-    </div>
-
-</body>
-
-</html>
+             

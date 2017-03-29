@@ -11,8 +11,8 @@
 						<table class="table table-striped table table-bordered table-striped " style="background: #f0f0f0">
 					    <tbody>
 								<tr class="tr"><th>Invoice No:</th><td>{{customers.id}}</td></tr>
-								<tr class="tr"><th>Created Date:</th><td><span class="label label-default">{{customers.date}}</span></td></tr>
-								<tr class="tr"><th>Delivery Date:</th><td><span class="label label-default">{{customers.delivery}}</span></td></tr>
+								<tr class="tr"><th>Created Date:</th><td><span class="">{{customers.date}}</span></td></tr>
+								<tr class="tr"><th>Delivery Date:</th><td><span class="">{{customers.delivery}}</span></td></tr>
 					       <tr class="tr"><th>Biller:</th><td><span class="">{{customers.billerName}}</span></td></tr>
 					      <tr class="tr"><th>Customer:</th><td>{{customers.custName}}</td></tr>
 					    </tbody>
@@ -71,6 +71,9 @@
 		
 		 </tbody>
 							  </table>
+
+								<h4 align="center">Additional Note</h4>
+								<p>{{customers.note}}</p>
 
 
 

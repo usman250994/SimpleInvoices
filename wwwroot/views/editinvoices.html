@@ -50,7 +50,7 @@
 											<td><input type="text" value="{{cust.price}}" ng-blur="editProd(customers.product.indexOf(cust),"price")"></td>
 											<td>
 <!--//blur-->
-											  <select name=""  ng-model="taxchange" ng-blur="editProd(customers.product.indexOf(cust), "tax")" >
+											  <select name=""  ng-model="taxchange" ng-blur="editProd(customers.product.indexOf(cust), "tax",value)" >
 	<option ng-repeat="tax in taxes" value="{{tax.id}}">{{tax.name}}</option>
 				</select>
 				<label>{{cust.taxPercent}}%</label> 
@@ -98,6 +98,8 @@
 		 </tbody>
 							  </table>
 
+<h4 align="center">Additional Note</h4>
+						 <textarea style="margin-top: 2% ; margin-left: 27%" ng-model="customers.note" name="paragraph_text" cols="50" rows="5" placeholder="Description"></textarea>
 
 
 
