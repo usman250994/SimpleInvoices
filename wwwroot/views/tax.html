@@ -1,0 +1,28 @@
+	 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	 					<div class=" b" ng-app="taxModule" ng-controller="gettax">
+					 <a href="#addtax">	<button type=""><i class="fa fa-plus-circle" aria-hidden="true"></i><span>Add New Field</span></button></a>
+ 							<table class="table table-striped table table-bordered table-striped" style="background: #f0f0f0">
+							    <thead>
+							      <tr>
+							        <th>ID</th>
+							        <th>Actions</th>
+											<th>Tax Name</th>
+							        <th>Tax Percents</th>
+											<th>Enable</th>
+
+							      </tr>
+							    </thead>
+							   <tbody ng-repeat="cust in taxes">
+                        <tr>
+                            <td> <span>{{cust.id}}<a href="#" ng-click="deletetax(cust.id)"><img src="../images/delete.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span><a href="#edittax" ng-click="setRoot(cust.id)"><img src="../images/edit.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(prod.id)"><img src="../images/print.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(cust.id)"><img src="../images/pdf.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span>{{cust.name}}</span></td>
+                            <td>  <span>{{cust.percent}}</span></td></td>
+                            
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+							  </table>
+	 					</div>
+	 				</div>
+	 		

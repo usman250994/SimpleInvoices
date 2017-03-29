@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body ng-app="invoiceModule">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div class="">
+            <a href="#addinvoice"> <button type=""><i class="fa fa-plus-circle" aria-hidden="true"></i><span>Add New Invoice</span></button></a>
+
+            <div ng-controller="viewinvoices">
+                <table class="table table-striped table table-bordered table-striped table-responsive" style="background: #f0f0f0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ACTIONS</th>
+                            <th>Customer</th>
+                            <th>Biller</th>
+                            <th>Paid</th>
+                            <th>Owing</th>
+                          <th>Due Date</th>
+                          <th>Status</th>
+                        </tr>
+                    </thead>
+                  
+                    <tbody ng-repeat="inv in invoices">
+                        <tr>
+                            <td> <span>{{inv.id}}<a href="#" ng-click="deleteInvoice(inv.id)"><img src="../images/delete.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span><a href="#viewinvoices" ng-click="setRoot(inv.id)"><img src="../images/view.png"alt="" style="width:20px; height:auto;" /></a><a href="#" ng-click="checkedit(inv.id)"><img src="../images/edit.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/mail.png"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/print.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/pdf.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span>{{inv.custName}}</span></td>
+                            <td>  <span>{{inv.billerName}}</span></td></td>
+                            <td> <span>{{inv.price-inv.balance}}</span></td>
+                            <td> <span>{{inv.balance}}</span></td>
+                            <td> <span>{{inv.date}}</span></td>
+                            <td ng-if="inv.balane== 0"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <td ng-if="inv.balane!= 0"><i class="fa fa-cog" aria-hidden="false"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+    <!--<script src="../shared/angular.min.js"></script> -->
+    <script src="../angular-route/angular-route.js"></script>
+    <script src="../angular-animate/angular-animate.js"></script>
+
+    <script src="../js/services.js"></script>
+    <script src="../js/customer.js"></script>
+    <!-- <script   src="../controllers/customer.js"></script> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#menu > li > a").click(function() {
+            // $('ul.sub-menu').not($(this).siblings()).slideUp();
+            $(this).siblings("ul.sub-menu").slideToggle();
+        });
+    </script>
+</body>
+
+</html>

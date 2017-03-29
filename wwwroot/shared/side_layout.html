@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../views/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../views/css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../views/css/stylesheet.css">
+
+</head>
+
+<body ng-app="sideModule">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="row">
+							<div class="logo"></div>
+							<nav class="main-menu">
+								<ul id="menu">
+									<li class="dropdown">
+										<a href="#"><i class="fa fa-home fa-2x f"></i>Home<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+										<ul class="sub-menu">
+											<li>
+												<a href="#allReports"><i class="fa fa-tachometer "></i>Dash board</a>
+											</li>
+											<li>
+												<a href="#allReports"><i class="fa fa-copy "></i>All Reports</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#"><i class="fa fa-money fa-2x f"></i>Money<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+										<ul class="sub-menu">
+											<li>
+												<a href="#invoices"><i class="fa fa-file "></i>Invoices</a>
+											</li>
+											<li>
+												<a href="#addinvoice"><i class="fa fa-file-text "></i>New Invoices</a>
+											</li>
+											<li>
+												<a href="#tax"><i class="fa fa-file-archive-o "></i>Tax Management</a>
+											</li>
+											<li>
+												<a href="#reccurence"><i class="fa fa-credit-card "></i>Payment</a>
+											</li>
+											<li>
+												<a href="#"><i class="fa fa-clipboard "></i>Sales Reports</a>
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#"><i class="fa fa-user fa-2x f"></i>People<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+										<ul class="sub-menu">
+											<li>
+												<a href="#customer"><i class="fa fa-contao "></i>Customer</a>
+											</li>
+											<li>
+												<a href="#"><i class="fa fa-book "></i> Recive invoice</a>
+											</li>
+											<li>
+												<a href="#Adduser"><i class="fa fa-user "></i>User</a>
+											</li>
+											<li>
+												<a href="#billers"><i class="fa fa-user "></i>Billers</a>
+
+											</li>
+											<li>
+												<a href="#login"><i class="fa fa-user "></i>Login</a>
+
+											</li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#"><i class="fa fa-product-hunt fa-2x f"></i>Product<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+										<ul class="sub-menu">
+											<li>
+												<a href="#manageproduct"><i class="fa fa-product-hunt "></i>Manage Product</a>
+											</li>
+											<li>
+												<a href="#addproduct"><i class="fa fa-podcast "></i>All Products</a>
+											</li>
+											<li>
+												<a href="#customs"><i class="fa fa-podcast "></i>Manage Custom Fields</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<!--add work as views in this simultaneous layout-->
+					<div ng-view></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.js"></script>
+
+	<!--<script src="../shared/angular.min.js"></script> -->
+	<!--<script src="../bower_components/angular-base64/angular-base64.js"></script>-->
+	<script src="../angular-route/angular-route.js"></script>
+	<script src="../angular-animate/angular-animate.js"></script>
+	<script src="../js/customer.js"></script>
+	<script src="../services/customfields.js"></script>
+	<script src="../services/services.js"></script>
+	<script src="../js/product.js"></script>
+	<script src="../js/invoice.js"></script>
+	<script src="../js/tax.js"></script>
+	<script src="../js/biller.js"></script>
+	<script src="../js/customfield.js"></script>
+	<script src="../js/payment.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/report.js"></script>
+	
+	<script src="../js/side.js"></script>
+
+	<!-- <script   src="../controllers/customer.js"></script> -->
+
+	<script src="../views/js/jquery.min.js"></script>
+	<script src="../views/js/bootstrap.min.js"></script>
+	<script>
+		$("#menu > li > a").click(function () {
+			// $('ul.sub-menu').not($(this).siblings()).slideUp();
+			$(this).siblings("ul.sub-menu").slideToggle();
+		});
+
+	</script>
+</body>
+
+</html>

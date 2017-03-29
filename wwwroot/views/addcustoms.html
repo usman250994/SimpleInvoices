@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>Bootstrap Example</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!--<link rel="stylesheet" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/stylesheet.css">-->
+
+	</head>
+	<body>
+	 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	 					<div class="" ng-controller="addcustom" >
+	 						<form ng-submit="save()">
+	 							<fieldset class="form-group">
+	 								<legend>Add Custom Field</legend>
+									 <label for="description">Field Name</label>
+	 								<input type="text" class="form-control" ng-model="custom.fieldName" id="name" placeholder="Field Name">
+	 								<label for="description">Table Name</label>
+	 								<select ng-model="custom.tableName" ng-options="x for x in names">
+</select>
+	 							</fieldset>
+					 
+						<button type="submit" class="btn btn-primary"><span> Save Cusutom Field</span></button>
+						 <!--<input class="btn btn-primary" type="button" value="save">-->
+	 	<button type="submit" class="btn btn-danger"><span> Cancel</span></button>
+							 </form>
+
+	 					</div>
+	 				</div>
+	 			<!---->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+	  <!--<script src="../shared/angular.min.js"></script> -->
+	 <script src="../angular-route/angular-route.js"></script>
+	  <script src="../angular-animate/angular-animate.js"></script>
+	 <script  src="../js/product.js"></script>
+	 <!-- <script   src="../controllers/product.js"></script> -->
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+				 <!---->
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script>
+$("#menu > li > a").click(function () {
+    // $('ul.sub-menu').not($(this).siblings()).slideUp();
+    $(this).siblings("ul.sub-menu").slideToggle();
+});
+</script>
+	</body>
+</html>

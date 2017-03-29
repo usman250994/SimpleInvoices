@@ -1,0 +1,46 @@
+
+	<body ng-app="paymentModule">
+	 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	 					<div class="" ng-controller="addpayment" >
+	 						<form ng-submit="save()">
+	 							<fieldset class="form-group">
+	 								<legend>Adjust Payments</legend>
+									 <label for="description">Invoice Number </label>
+	 								  <select   ng-model="pay.invoiceId">
+	<option ng-repeat="inv in invoices" value="{{inv.id}}">{{inv.id}}</option>
+				</select>
+	 								<label for="description">Amount Paying</label>
+	 								<input type="number" ng-model="pay.amount">
+</select>
+<label for="description">Select Date</label>
+ <input type="date" ng-model="pay.date" />
+
+	 							</fieldset>
+					 
+						<button type="submit" class="btn btn-primary"><span> Save Cusutom Field</span></button>
+						 <!--<input class="btn btn-primary" type="button" value="save">-->
+	 	<button type="submit" class="btn btn-danger"><span> Cancel</span></button>
+							 </form>
+
+	 					</div>
+	 				</div>
+	 			<!---->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+	  <!--<script src="../shared/angular.min.js"></script> -->
+	 <script src="../angular-route/angular-route.js"></script>
+	  <script src="../angular-animate/angular-animate.js"></script>
+	 <script  src="../js/product.js"></script>
+	 <!-- <script   src="../controllers/product.js"></script> -->
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+				 <!---->
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script>
+$("#menu > li > a").click(function () {
+    // $('ul.sub-menu').not($(this).siblings()).slideUp();
+    $(this).siblings("ul.sub-menu").slideToggle();
+});
+</script>
+	</body>
+</html>

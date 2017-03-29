@@ -1,0 +1,109 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>Bootstrap Example</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/stylesheet.css">
+	</head>
+	<body>-->
+	 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	 					<div class="" ng-controller="addCustomer" >
+	 						<form ng-submit="addCustomer()">
+	 							<fieldset class="form-group">
+	 								<legend>Add Customer</legend>
+	 								<label for="customerName">Customer Name</label>
+	 								<input type="text" class="form-control" id="customerName"ng-model="customer.name" placeholder="Enter Customer Name">
+	 								<label for="customerContact">Customer Contact (Attn)</label>
+	 								<input type="number" class="form-control" id="customerContact"  ng-model="customer.contact" placeholder="Customer Contact (Attn)">
+	 								<label for="streetAddress">Street Address</label>
+	 								<input type="text" class="form-control" id="streetAddress" ng-model="customer.address"  placeholder="Street Address">
+									 <label for="city">City</label>
+	 								<input type="text" class="form-control" id="city" ng-model="customer.city" placeholder="City">
+	 							<label for="email">Email</label>
+	 								<input type="email" class="form-control"  ng-model=" customer.email" placeholder="Email">
+								
+								    <label for="city">Shoulder</label>
+	 								<input type="text" class="form-control"  ng-model="customer.shoulder" placeholder="Shoulder">
+	 								<label for="department">Chest</label>
+	 								<input type="text" class="form-control" ng-model="customer.chest" placeholder="Chest">
+									 <label for="state">Upper Waist</label>
+	 								<input type="text" class="form-control" ng-model="customer.upperWaist" placeholder="Upper Waist">
+	 								<label for="zipCode">Waist</label>
+	 								<input type="text" class="form-control" ng-model="customer.waist" placeholder="Waist">
+	 								<label for="country">Lower Waist</label>
+	 								<input type="text" class="form-control" ng-model="customer.lowerWaist" placeholder="Lower Waist">
+	 								<label for="fax">Hips</label>
+	 								<input type="text" class="form-control" ng-model="customer.hips" placeholder="Hips">
+	 								<label for="phone">Arm Hole</label>
+	 								<input type="number" class="form-control" ng-model="customer.armHole" ng-model="user.number" placeholder="Arm Hole">
+	 								<label for="mobilePhone">Full Sleeve length</label>
+	 								<input type="text" class="form-control" ng-model="customer.fullSleeveLength" placeholder="Full Sleeve Length">
+	 								<label for="fax">3/4 Sleeve Length</label>
+	 								<input type="text" class="form-control" ng-model="customer.sleeveLength" placeholder="3/4 Sleeve Length">
+	 								<label for="craditCardHolderName">Bicep</label>
+	 								<input type="text" class="form-control" ng-model="customer.bicep" placeholder="Bicep">
+	 								<label for="craditCardNumber">Fore Arm</label>
+	 								<input type="text" class="form-control" ng-model="customer.foreArm" placeholder="Fore Arm">
+	 								<label for="craditCardExpiryMonth">Wrist</label>
+	 								<input type="text" class="form-control" ng-model="customer.wrist" placeholder="Wrist">
+	 								<label for="craditCardExpiryYear">Long Shirt Length</label>
+	 								<input type="text" class="form-control" ng-model="customer.longShirtLength" placeholder="Long Shirt Length">
+									 <label for="streetAddress2">Short Shirt Length</label>
+	 								<input type="text" class="form-control" ng-model="customer.shortShirtLength" placeholder="Short Shirt Length">
+	 								<label for="department">Chaak</label>
+	 								<input type="text" class="form-control" ng-model="customer.chaak" placeholder="Chaak">
+									 <label for="state">Daaman</label>
+	 								<input type="text" class="form-control" ng-model="customer.daaman" placeholder="Daaman">
+									 <label for="zipCode">Front Neck(Depth)</label>
+	 								<input type="text" class="form-control" ng-model="customer.frontNeckDepth" placeholder="Front Neck(Depth)">
+	 								<label for="country">Front Neck(Width)</label>
+	 								<input type="text" class="form-control" ng-model="customer.frontNeckWidth" placeholder="Front Neck(Width)">
+	 								<label for="fax">Back Neck(Depth)</label>
+	 								<input type="text" class="form-control" ng-model="customer.backNeckDepth" placeholder="Back Neck(Depth)">
+	 								<label for="phone">Back Neck(Width)</label>
+	 								<input type="number" class="form-control" ng-model="customer.backNeckWidth" ng-model="user.number" placeholder="Back Neck (width)">
+	 								<label for="mobilePhone">Thigh</label>
+	 								<input type="text" class="form-control" ng-model="customer.thigh" placeholder="Thigh">
+	 								<label for="fax">Knee Cap</label>
+	 								<input type="text" class="form-control" ng-model="customer.kneeCap" placeholder="Knee Cap">
+	 								<label for="craditCardHolderName">Calf</label>
+	 								<input type="text" class="form-control" ng-model="customer.calf" placeholder="Calf">
+	 								<label for="craditCardNumber">Ankle</label>
+	 								<input type="text" class="form-control" ng-model="customer.ankle" placeholder="Ankle">
+	 								<label for="craditCardExpiryMonth">Pant Length</label>
+	 								<input type="text" class="form-control" ng-model="customer.pantLength" placeholder="Pant Length">
+	 								<label for="select">Body Mesurement</label>
+	 								<select name="select" ng-model="customer.measurementType">
+	 									<option value="enable">body</option>
+	 									<option value="disable">ready</option>
+	 								</select>
+									<input type="file" ng-model="customer.picture" id="myfile">
+
+<div ng-repeat="input in customFields">
+ <label for="phone">{{input.fieldName}}</label>
+  <input type="text" class="form-control" ng-model="input.fieldValue"> 
+</div>
+	 							</fieldset>
+ <button type="submit"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> New Customer</span></button>
+	 						</form>
+	 					</div>
+	 				</div>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+	  <!--<script src="../shared/angular.min.js"></script> -->
+	 <script src="../angular-route/angular-route.js"></script>
+	  <script src="../angular-animate/angular-animate.js"></script>
+	 <script  src="../js/customer.js"></script>
+	 
+	  <script src="js/jquery.min.js"></script>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script>
+$("#menu > li > a").click(function () {
+    // $('ul.sub-menu').not($(this).siblings()).slideUp();
+    $(this).siblings("ul.sub-menu").slideToggle();
+});
+</script>
+	<!--</body>
+</html>-->

@@ -1,0 +1,30 @@
+	 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+	 					<div class=" b" ng-app="billerModule" ng-controller="getBiller">
+					 <a href="#adduser">	<button type=""><i class="fa fa-plus-circle" aria-hidden="true"></i><span>Add New Billers</span></button></a>
+ 							<table class="table table-striped table table-bordered table-striped" style="background: #f0f0f0">
+							    <thead>
+							      <tr>
+							        <th>ID</th>
+							        <th>Actions</th>
+											<th>Name</th>
+							        <th>Email</th>
+							        <th>Address</th>
+											<th>Contact</th>
+											<th>Enable</th>
+							      </tr>
+							    </thead>
+							   <tbody ng-repeat="bill in billers">
+                        <tr>
+                            <td> <span>{{bill.id}}<a href="#" ng-click="deleteBiller(bill.id)"><img src="../images/delete.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span><a href="#viewBiller" ng-click="setRoot(bill.id)"><img src="../images/view.png"alt="" style="width:20px; height:auto;" /></a><a href="#editBiller" ng-click="setRoot(bill.id)"><img src="../images/edit.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(bill.id)"><img src="../images/mail.png"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(bill.id)"><img src="../images/print.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(bill.id)"><img src="../images/pdf.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span>{{bill.name}}</span></td>
+                            <td> <span>{{bill.email}}</span></td>
+														<td>  <span>{{bill.address}}</span></td></td>
+                            <td> <span>{{bill.contact}}</span></td>
+														<td><i class="fa fa-check" aria-hidden="true"></i></td>
+                        </tr>
+                    </tbody>
+							  </table>
+	 					</div>
+	 				</div>
+	 		

@@ -1,0 +1,113 @@
+			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-app="invoiceModule" ng-controller="editInvoice">
+	 					<div class="mrgn ">
+		 					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		 					</div>
+		 					<div class="col-xs-9 col-sm-11 col-md-11 col-lg-11">
+		 					</div>
+	 					</div>
+						<table class="table table-striped table table-bordered table-striped " style="background: #f0f0f0">
+					    <tbody>
+								<tr class="tr"><th>Invoice No:</th><td>{{customers.id}}</td></tr>
+								<tr class="tr"><th>Created Date:</th><td><span class="">{{created}}</span></td></tr>
+								<tr class="tr"><th>Delivery Date:</th><td><span class=""><input type="date" ng-model="dates" value="{{date}}" ></span></td></tr>
+				
+					       <tr class="tr"><th>Biller:</th><td><select   ng-model="bill">
+	<option ng-repeat="biller in billers" value="{{biller.id}}" ng-selected="bille">{{biller.name }}</option>
+				</select></td></tr>
+					      
+								<tr class="tr"><th>Customer:</th><td><select   ng-model="custom" >
+	<option ng-repeat="cust in customer" value="{{cust.id}}" ng-selected="custome">{{cust.name}}</option>
+				</select></td></tr>
+
+
+					    </tbody>
+					  </table>
+					  <table class="table table-striped table table-bordered table-striped" style="background: #f0f0f0">
+							    <thead>
+							      <tr>
+							        <th>Qty</th>
+							        <th>Item</th>
+							        <th>Unit Cost</th>
+											<th>Tax</th>
+							        <th>Price</th>
+							       </tr>
+							    </thead>
+							    <tbody>
+							      <tr ng-repeat="cust in customers.product">
+									<!--//blur-->
+											<td><input type="number" value="{{cust.quantity}}"   ng-blur="editProd(customers.product.indexOf(cust),"quantity")"></td>
+											<td>
+<!--//blur-->
+<label>{{cust.name}}</label>
+<input type="text"  list="browsers" ng-blur="updatePrice(customers.product.indexOf(cust),value)" >
+                        <datalist id=browsers>
+                            <option ng-repeat="product in products"  value="{{product.name}}" >
+                                {{product.name}}
+                                <option>
+                        </datalist>
+											</td>
+<!--//blur-->
+											<td><input type="text" value="{{cust.price}}" ng-blur="editProd(customers.product.indexOf(cust),"price")"></td>
+											<td>
+<!--//blur-->
+											  <select name=""  ng-model="taxchange" ng-blur="editProd(customers.product.indexOf(cust), "tax")" >
+	<option ng-repeat="tax in taxes" value="{{tax.id}}">{{tax.name}}</option>
+				</select>
+				<label>{{cust.taxPercent}}%</label> 
+												
+												</td>
+											<td><label id="totoal">{{(cust.price*cust.quantity*cust.taxPercent)/100+(cust.price*cust.quantity)}}</label></td>
+							      </tr>
+							    </tbody>
+							    <tfoot>
+							     
+							       <tr>
+							    	<td colspan="3" class="right"> Invoice Total Amount</td>
+							    <!--onclick event to counter the below balance field-->
+										<td >{{customers.price}}</td>
+							      </tr>
+										 <tr>
+							    	<td colspan="3" class="right"> Invoice Balance</td>
+							    	<td >{{customers.balance}}</td>
+							      </tr>
+							    </tfoot>
+							  </table>
+<h3 align="center">Designs<h3>
+  <table class="table table-striped table table-bordered table-striped" style="background: #f0f0f0">
+							    <thead>
+							      <tr>
+							        <th>Names</th>
+							        <th>Fabric</th>
+							        <th>Cut</th>
+										<th>Color</th>
+							        <th>Note</th>
+							       </tr>
+							    </thead>
+							  	
+	<tbody ng-repeat="prod in customers.product">
+		<tr ng-repeat="des in prod.designs">
+
+ <td><label>{{des.name}}</label></td>
+	
+		<td><input type="text" ng-model="des.fabric"></td>
+		<td><input type="text" ng-model="des.color"></td>
+		<td><input type="text" ng-model="des.cut"></td>
+	<td><input type="text" ng-model="des.note"></td>
+	</tr>
+		
+		 </tbody>
+							  </table>
+
+
+
+
+
+
+
+
+
+
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>

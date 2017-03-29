@@ -1,0 +1,35 @@
+
+<body ng-app="customModule">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+       <h3>Edit Custom Field</h3>
+            <div ng-controller="editTController">
+<div>
+                <form name="as" ng-submit="edit()">
+  <ul>
+  <li  ng-repeat="(key, val) in taxes" >
+   <label class="label">{{key}}</label> <input type="text" ng-model="taxes[key]"/> 
+  </li>
+  <button type="submit" ><i class="fa fa-plus-circle" aria-hidden="true"></i><span> Edit Custom Field</span></button>
+<ul>
+</form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+    <!--/*<script src="../shared/angular.min.js"></script> */-->
+    <script src="../angular-route/angular-route.js"></script>
+    <script src="../angular-animate/angular-animate.js"></script>
+
+    <script src="../js/services.js"></script>
+    <script src="../js/customer.js"></script>
+    <!-- <script   src="../controllers/customer.js"></script> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#menu > li > a").click(function() {
+            // $('ul.sub-menu').not($(this).siblings()).slideUp();
+            $(this).siblings("ul.sub-menu").slideToggle();
+        });
+    </script>
+</body>

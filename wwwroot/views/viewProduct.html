@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="productModule">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+       <h3>View Product</h3>
+            <div ng-controller="editPController">
+<div>
+                
+  <ul>
+  <li  ng-repeat="(key, val) in products  " ng-hide="(key=='customField' || key=='designs' || key=='enable' )" >
+   <label class="label"> {{key}}</label> <input type="text" ng-model="products[key]"/> 
+  </li>
+<li  ng-repeat="input in products.customField">
+ 
+   <label class="label"> {{input.fieldName}}</label> <input type="text" ng-model="input.fieldValue"/> 
+ 
+  </li>
+ 
+<ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+    <!--/*<script src="../shared/angular.min.js"></script> */-->
+    <script src="../angular-route/angular-route.js"></script>
+    <script src="../angular-animate/angular-animate.js"></script>
+
+    <script src="../js/services.js"></script>
+    <script src="../js/customer.js"></script>
+    <!-- <script   src="../controllers/customer.js"></script> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#menu > li > a").click(function() {
+            // $('ul.sub-menu').not($(this).siblings()).slideUp();
+            $(this).siblings("ul.sub-menu").slideToggle();
+        });
+    </script>
+</body>
+
+</html>

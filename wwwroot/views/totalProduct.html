@@ -1,0 +1,25 @@
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+    <div class="col-md-4 b" ng-app="ReportModule" ng-controller="totalProduct" >
+
+        <table class="table table-striped table-responsive table table-bordered table-striped " style="background: #f0f0f0">
+            <thead>
+                <h1>Total Product</h1>
+                <tr>
+
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="prod in sales">
+                <tr>
+                    <td> <span>{{prod.productName}}</span></td>
+                    <td> <span>{{prod.quantity}}</span></td>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td><h3>Total:</h3></td><td> <h3>{{getTotal()}}</h3></td></td>
+                <tfoot>
+        </table>
+    </div>
+</div>

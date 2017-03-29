@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="customerModule">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+       <h3>Edit Customer</h3>
+            <div ng-controller="editCController">
+<div>
+                <form name="as" ng-submit="edit()">
+  <ul>
+  <li  ng-repeat="(key, val) in Customers" ng-hide="(key=='customfields' || key=='imagepath' || key=='enable' || key=='total' || key=='paid'||key=='owing')" >
+   <label class="label"> {{key}}</label> <input type="text" ng-model="Customers[key]"/> 
+  </li>
+<li  ng-repeat="(key, val) in Customers.customFields">
+   <label class="label"> {{key}}</label> <input type="text" ng-model="Customers.customfields[key]"/> 
+  </li>
+<button type="submit"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> Edit Customer</span></button>
+<div align="center">
+  <img data-ng-src="{{getImage(Customers.imagepath)}}" height="200dp" width="200dp" />
+<div>
+    <input type="file" ng-model="customer.picture" id="myfile">
+<ul>
+</form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+    <!--/*<script src="../shared/angular.min.js"></script> */-->
+    <script src="../angular-route/angular-route.js"></script>
+    <script src="../angular-animate/angular-animate.js"></script>
+
+    <script src="../js/services.js"></script>
+    <script src="../js/customer.js"></script>
+    <!-- <script   src="../controllers/customer.js"></script> -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#menu > li > a").click(function() {
+            // $('ul.sub-menu').not($(this).siblings()).slideUp();
+            $(this).siblings("ul.sub-menu").slideToggle();
+        });
+    </script>
+</body>
+
+</html>
