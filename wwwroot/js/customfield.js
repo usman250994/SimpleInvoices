@@ -9,7 +9,8 @@ $scope.save = function(){
     $scope.custom.id = 0;
     $scope.message =  $http.post('http://localhost:5000/api/customfield/addCustomField',$scope.custom).
       then(function (response){
-        console.log(response.data);    
+        console.log(response.data);
+        $location.url('custom');    
  });
 
 }    

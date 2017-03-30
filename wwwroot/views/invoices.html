@@ -30,14 +30,14 @@
                     <tbody ng-repeat="inv in invoices">
                         <tr>
                             <td> <span>{{inv.id}}<a href="#" ng-click="deleteInvoice(inv.id)"><img src="../images/delete.png"alt="" style="width:20px; height:auto;" /></a></span></td>
-                            <td> <span><a href="#viewinvoices" ng-click="setRoot(inv.id)"><img src="../images/view.png"alt="" style="width:20px; height:auto;" /></a><a href="#" ng-click="checkedit(inv.id)"><img src="../images/edit.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/mail.png"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/print.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/pdf.png"alt="" style="width:20px; height:auto;" /></a></span></td>
+                            <td> <span><a href="#viewinvoices" ng-click="setRoot(inv.id)"><img src="../images/view.png"alt="" style="width:20px; height:auto;" /></a><a href="#" ng-click="checkedit(inv.id)"><img src="../images/edit.ico"alt="" style="width:20px; height:auto;" /></a><a href="#view" ng-click="setRoot(inv.id)"><img src="../images/mail.png"alt="" style="width:20px; height:auto;" /></a></span></td>
                             <td> <span>{{inv.custName}}</span></td>
                             <td>  <span>{{inv.billerName}}</span></td></td>
                             <td> <span>{{inv.price-inv.balance}}</span></td>
                             <td> <span>{{inv.balance}}</span></td>
                             <td> <span>{{inv.date}}</span></td>
-                            <td ng-if="inv.balane== 0"><i class="fa fa-check" aria-hidden="true"></i></td>
-                            <td ng-if="inv.balane!= 0"><i class="fa fa-cog" aria-hidden="false"></i></td>
+                            <td ng-if="inv.balance==0"><i class="fa fa-check" aria-hidden="false"></i></td>
+                            <td ng-if="inv.balance!=0"><i class="fa fa-cog" aria-hidden="false"></i></td>
                         </tr>
                     </tbody>
                 </table>

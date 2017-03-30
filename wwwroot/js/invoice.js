@@ -102,6 +102,7 @@
      var promiseGet = createInvoice.addInvoices(addInvoice);
         promiseGet.then(function (pl) {
             $scope.result = pl.data
+           $location.url('invoices');
         },
             function (errorpl) {
                 $log.error('Failure loading Tax', errorpl);
@@ -168,6 +169,7 @@
             console.log($rootScope.invoiceId);
         };
 
+
 $scope.checkedit = function(x)
 {
 $scope.message =  $http.post('http://localhost:5000/api/invoice/getinvoice',x).
@@ -216,7 +218,32 @@ $scope.message =  $http.post('http://localhost:5000/api/invoice/getinvoice',x).
 
             
          });
-                
+
+//print function here
+$scope.print= function()
+{
+ var printContents = document.getElementById(viewInvoices).innerHTML;
+  var popupWin = window.open('', '_blank', 'width=150,height=150');
+  popupWin.document.open();
+  popupWin.document.write('<html><head>  <link rel="stylesheet" href="css/bootstrap.min.css"><link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="views/css/stylesheet.css"></head><body onload="window.print()">' + printContents + '</body></html>');
+  popupWin.document.close();   
+}
+$scope.exports = function(){
+console.log("sdsd");
+html2canvas(document.getElementById('exportthis'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500,
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Score_Details.pdf");
+            }
+        });
+     }
+
                 $scope.edit = function()
                 {                   
 var file = document.getElementById('myfile').files[0];
@@ -279,10 +306,11 @@ $scope.customers.price = $scope.customers.price-oldValue;
          });
 $scope.edits = function()
 {
+    console.log("ssss");
 $scope.customers.billerId=$scope.bill;
 $scope.customers.customerId=custom;
 $scope.customers.delivery=dates;
-
+console.log($scope.customers);
 //here take your $scope.customers invoice  variable :) have fun
 }      
 

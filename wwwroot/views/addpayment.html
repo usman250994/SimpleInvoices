@@ -7,7 +7,7 @@
 	 								<legend>Adjust Payments</legend>
 									 <label for="description">Invoice Number </label>
 	 								  <select   ng-model="pay.invoiceId">
-	<option ng-repeat="inv in invoices" value="{{inv.id}}">{{inv.id}}</option>
+	<option ng-repeat=" inv in invoices" value="{{inv.id}}">{{inv.id+","+inv.name+","+inv.billerName+","+inv.custName+","+inv.price+","+inv.balance+","+inv.note+","+inv.delivery}}</option>
 				</select>
 	 								<label for="description">Amount Paying</label>
 	 								<input type="number" ng-model="pay.amount">

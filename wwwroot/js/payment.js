@@ -14,6 +14,7 @@
           $scope.message = $http.post('http://localhost:5000/api/payment/createpayment', $scope.pay).
             then(function (response) {
               $scope.invoices = response.data[0];
+              //$location.url();
             });
         };
 

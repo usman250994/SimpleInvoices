@@ -21,6 +21,7 @@ $scope.biller.customFields=$scope.customFields;
 console.log($scope.biller);
     $scope.message =  $http.post('http://localhost:5000/api/biller/create',$scope.biller).
       then(function (response){
+          $location.url('billers');
         
  });
 }    

@@ -7,7 +7,8 @@
     console.log($scope.tax);
     $scope.message =  $http.post('http://localhost:5000/api/tax/create',$scope.tax).
       then(function (response){
-        console.log(response.data);    
+        console.log(response.data);   
+        $location.url('tax'); 
  });
 
 }

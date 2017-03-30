@@ -12,8 +12,8 @@ for(var i=0;i<$scope.customFields.length;i++)
     $scope.customFields[i].fieldValue="";
 }
 },
-                function(errorPl) {
-                    $log.error('failure loading customeFields', errorPl);
+        function(errorPl) {
+       $log.error('failure loading customeFields', errorPl);
                 });
 $scope.save= function(){
 $scope.product.id=0;
@@ -23,6 +23,7 @@ console.log($scope.product);
          then(function (response){
            console.log(response.data);    
            $scope.message = response.data;
+           $location.url('manageproduct');
           
  });
 

@@ -84,7 +84,8 @@ $scope.customer.imagepath= btoa(reader.result);
 console.log($scope.customer.imagepath);
     $scope.message =  $http.post('http://localhost:5000/api/customer/create',$scope.customer).
          then(function (response){
-           console.log(response.data);         
+           console.log(response.data);  
+           $location.url();       
  });   
      };
    //
