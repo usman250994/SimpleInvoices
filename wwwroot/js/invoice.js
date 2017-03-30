@@ -251,10 +251,41 @@ app.controller('editInvoice', function($scope,$rootScope,$http,getBillerService,
                  $scope.quantity= $scope.customers.quantity;
                  $scope.created = $scope.customers.date.substring(0,10);
                  $scope.date = $scope.customers.delivery.substring(0,10);
-                 
+          
+         for(var i =0;i<$scope.customers.product.length;i++)
+         {
+             $scope.customers.product[i].total = $scope.customers.product[i].quantity*$scope.customers.product[i].price*$scope.customers.product[i].taxPercent*0.01+$scope.customers.product[i].quantity*$scope.customers.product[i].price;
+    alert($scope.customers.product[i].total);    
+     }
+var old = [];
+          for(var i=0;i<$scope.customers.product.length;i++)
+         {
+             old[i]=$scope.customers.product[i].price;
+     }
+        
+          for(var i=0;i<$scope.customers.product.length;i++)
+         {
+             $scope.$watch('customers.product['+i+'].total',function(newValue,oldValue)
+             {
+                 var old =$scope.customers.price; 
+$scope.customers.price = $scope.customers.price+newValue; 
+$scope.customers.price = $scope.customers.price-oldValue;
+    var diff = $scope.customers.price -old;
+
+    $scope.customers.balance = $scope.customers.balance+diff;
          });
-       
-////////
+     }
+
+         });
+$scope.edits = function()
+{
+$scope.customers.billerId=$scope.bill;
+$scope.customers.customerId=custom;
+$scope.customers.delivery=dates;
+
+//here take your $scope.customers invoice  variable :) have fun
+}      
+
 //product
 var product = "Product";
         var promiseGet = createInvoice.fillscope(0); //The MEthod Call from service
@@ -294,58 +325,64 @@ var product = "Product";
             });     
             
 
-$scope.updatePrice= function(index, value)
+$scope.updatePrice= function(index)
 {
+    var value = document.getElementById('prod-'+index).value;
+    var prod = $scope.customers.product[index];
 for(var i=0;i<$scope.products.length;i++)
  { 
-    if($scope.products[i].name==$scope.customers.product[index].name)
-   {         
-       $scope.customers.product[index].price = $scope.products[i].price;
+    if($scope.products[i].name==value)
+   {         prod.name= $scope.products[i].name;
+       prod.price = $scope.products[i].price;
        //call function to update price and all other fields wrt product change
+    $scope.customers.product[index] = prod;
+    prod.total = prod.quantity*prod.price*prod.taxPercent*0.01+prod.quantity*prod.price;
+
     return;
     }
    }
 }
 //blur function editProd
-
-$scope.editProd = function(index,name,val)
+$scope.editProd = function(index,name)
 {
 if(name=="quantity")
-{
+{ 
+    alert("Quantity");
     // now that quantity hass changed so we need to change price accordingly
-    var prod = $scope.customers.products[index]; 
-    prod.price=prod.quantity*prod.price*prod.taxPercent*0.001;
-$scope.customers.products[index]=prod;
+    var prod = $scope.customers.product[index]; 
+  prod.total = prod.quantity*prod.price*prod.taxPercent*0.01+prod.quantity*prod.price;
+$scope.customers.product[index]=prod;
 }
-
 if(name=="tax")
 {
-    // now that tax hass changed so we need to change price accordingly
-var prod = $scope.customers.products[index]; 
-var taxPercentage;
+    
+    alert("eeach");// now that tax hass changed so we need to change price accordingly
+var prod = $scope.customers.product[index]; 
+var taxId = document.getElementById('tax-'+index).value;
 for(var i=0;i<$scope.taxes.length;i++)
 {
-if($scope.taxes[i].id==val)
+if($scope.taxes[i].id==taxId)
 {
-taxPercentage= $scope.taxes[i].percent;
-prod.taxId=$scope.taxes[i].id;
-return;
+prod.taxPercent= $scope.taxes[i].percent;
 }
-    }
-prod.price=prod.quantity*prod.price*taxPercentage*0.001;
-$scope.customers.products[index]=prod;
+    } 
+    alert("reached");
+  prod.total = prod.quantity*prod.price*prod.taxPercent*0.01+prod.quantity*prod.price;
+$scope.customers.product[index]=prod;
 }
-
 if(name=="price")
 {
-    // now that price hass changed so we need to change price accordingly
-    var prod = $scope.customers.products[index]; 
-    prod.price=prod.quantity*prod.price*prod.taxPercent*0.001;
-$scope.customers.products[index]=prod;
+       // now that price hass changed so we need to change price accordingly
+    var prod = $scope.customers.product[index]; 
+    alert(prod.taxPercent);
+    alert(prod.price);
+    alert(prod.quantity);
+ 
+  prod.total = prod.quantity*prod.price*prod.taxPercent*0.01+prod.quantity*prod.price;
+$scope.customers.product[index]=prod;
 }
 
     }
-
 
 
 

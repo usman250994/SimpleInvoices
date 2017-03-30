@@ -19,7 +19,6 @@
 	<option ng-repeat="cust in customer" value="{{cust.id}}" ng-selected="custome">{{cust.name}}</option>
 				</select></td></tr>
 
-
 					    </tbody>
 					  </table>
 					  <table class="table table-striped table table-bordered table-striped" style="background: #f0f0f0">
@@ -35,11 +34,11 @@
 							    <tbody>
 							      <tr ng-repeat="cust in customers.product">
 									<!--//blur-->
-											<td><input type="number" value="{{cust.quantity}}"   ng-blur="editProd(customers.product.indexOf(cust),"quantity")"></td>
+											<td><input type="number" ng-model="cust.quantity"   ng-blur="editProd(customers.product.indexOf(cust),'quantity')"></td>
 											<td>
 <!--//blur-->
 <label>{{cust.name}}</label>
-<input type="text"  list="browsers" ng-blur="updatePrice(customers.product.indexOf(cust),value)" >
+<input type="text"  list="browsers"id="prod-{{$index}}" ng-blur="updatePrice(customers.product.indexOf(cust))" >
                         <datalist id=browsers>
                             <option ng-repeat="product in products"  value="{{product.name}}" >
                                 {{product.name}}
@@ -47,20 +46,16 @@
                         </datalist>
 											</td>
 <!--//blur-->
-											<td><input type="text" value="{{cust.price}}" ng-blur="editProd(customers.product.indexOf(cust),"price")"></td>
-											<td>
-<!--//blur-->
-											  <select name=""  ng-model="taxchange" ng-blur="editProd(customers.product.indexOf(cust), "tax",value)" >
-	<option ng-repeat="tax in taxes" value="{{tax.id}}">{{tax.name}}</option>
-				</select>
-				<label>{{cust.taxPercent}}%</label> 
-												
+											<td><input type="text" ng-model="cust.price" ng-blur="editProd(customers.product.indexOf(cust),'price')"></td>
+											<td><label>{{cust.taxPercent}}%</label> 
+											  <select id="tax-{{$index}}"ng-blur="editProd(customers.product.indexOf(cust),'tax')">
+	            <option ng-repeat="tax in taxes" value="{{tax.id}}">{{tax.name}}</option>
+				   </select>
 												</td>
-											<td><label id="totoal">{{(cust.price*cust.quantity*cust.taxPercent)/100+(cust.price*cust.quantity)}}</label></td>
+											<td><input id="total-{{$index}}" ng-change="total(customers.product.indexOf(cust))" ng-model="cust.total" /></td>
 							      </tr>
 							    </tbody>
 							    <tfoot>
-							     
 							       <tr>
 							    	<td colspan="3" class="right"> Invoice Total Amount</td>
 							    <!--onclick event to counter the below balance field-->
@@ -104,7 +99,7 @@
 
 
 
-
+<button on-click="edits()"><i class="fa fa-plus-circle" aria-hidden="true"></i><span> Edit Invoice </span></button>
 
 
 
